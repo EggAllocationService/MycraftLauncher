@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="MycraftLauncher.AccountTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MycraftLauncher"
+             mc:Ignorable="d" Height="72" Width="351">
+    <Grid>
+        <Image x:Name="avatar" HorizontalAlignment="Left" Height="72" VerticalAlignment="Center" Width="77" Source="https://oracles.cabotmc.dev/bg.png" Stretch="Fill"/>
+        <Label x:Name="username" Content="Label" HorizontalAlignment="Left" Margin="77,10,0,0" VerticalAlignment="Top" Width="166" Height="26" Foreground="White" Padding="5,0,0,0" VerticalContentAlignment="Center" FontSize="16"/>
+        <Label x:Name="email" Content="Label" HorizontalAlignment="Left" Height="15" Margin="77,41,0,0" VerticalAlignment="Top" Width="124" VerticalContentAlignment="Center" Foreground="#FF727272" Padding="5,0,0,0" FontSize="10"/>
+        <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="274,0,0,0" VerticalAlignment="Center" Width="56" BorderBrush="#00707070" Background="#FF3CBB00" Height="25"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,14 @@
+﻿<Window x:Class="MycraftLauncher.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MycraftLauncher"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="542" Width="374" Background="#FF323131" WindowStyle="SingleBorderWindow" ResizeMode="NoResize">
+    <Grid>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="28" VerticalAlignment="Top" Width="190" IsIndeterminate="True" Margin="0,108,0,0"/>
+        <Label Content="Choose a Profile&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Top" Height="42" Width="288" Foreground="White" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+        <Grid x:Name="accountsList" Margin="0,156,0,25" HorizontalAlignment="Center" Width="326" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>
