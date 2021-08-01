@@ -22,6 +22,24 @@ namespace MycraftLauncher
     public partial class AccountTile : UserControl
     {
         AuthenticationDatabaseItem item;
+        bool _button = false;
+        public bool LoginButtonVisible
+        {
+            get => _button;
+            set
+            {
+                if (value)
+                {
+                    loginButton.IsEnabled = true;
+                    loginButton.Visibility = Visibility.Visible;
+                } else
+                {
+                    loginButton.IsEnabled = false;
+                    loginButton.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
         public AccountTile(AuthenticationDatabaseItem acc, bool showButton)
         {
             InitializeComponent();
@@ -33,7 +51,7 @@ namespace MycraftLauncher
             bitmapImage.UriSource = new Uri("https://crafatar.com/renders/head/" + acc.profiles.First().Key + "?overlay");
             bitmapImage.EndInit();
             avatar.Source = bitmapImage;
-            
+            item = acc;
             if(!showButton)
             {
                 loginButton.IsEnabled = false;
@@ -42,6 +60,45 @@ namespace MycraftLauncher
             {
                 this.VerticalAlignment = VerticalAlignment.Top;
             }
+        }
+        public AccountTile()
+        {
+            InitializeComponent();
+        }
+
+
+        public void SetDatabaseItem(AuthenticationDatabaseItem acc)
+        {
+            InitializeComponent();
+            username.Content = acc.profiles.First().Value.displayName;
+            email.Content = acc.username;
+            //email.Content = acc.accessToken;
+            var bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.UriSource = new Uri("https://crafatar.com/renders/head/" + acc.profiles.First().Key + "?overlay");
+            bitmapImage.EndInit();
+            avatar.Source = bitmapImage;
+        }
+
+        private void loginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Config.GlobalConfig.instance.authItem != null)
+            {
+                return;
+            }
+            if (item == null)
+            {
+                return;
+            }
+            Config.GlobalConfig.instance.authItem = item;
+            Config.GlobalConfig.Save();
+
+
+            var _current = App.currentWindow;
+            App.Current.MainWindow = new MainWindow();
+            App.Current.MainWindow.Show();
+            _current.Close();
+            App.currentWindow = App.Current.MainWindow;
         }
     }
 }

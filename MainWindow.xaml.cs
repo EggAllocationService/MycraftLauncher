@@ -24,6 +24,12 @@ namespace MycraftLauncher
         {
             InitializeComponent();
             App.currentWindow = this;
+            accountDisplay.SetDatabaseItem(Config.GlobalConfig.instance.authItem);
+        }
+
+        private void playButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

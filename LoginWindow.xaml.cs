@@ -22,6 +22,15 @@ namespace MycraftLauncher
         public LoginWindow()
         {
             InitializeComponent();
+            if (Config.GlobalConfig.instance.authItem != null)
+            {
+               
+                App.Current.MainWindow = new MainWindow();
+                App.Current.MainWindow.Show();
+                Close();
+                App.currentWindow = App.Current.MainWindow;
+            }
+
             string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string launcherJson = Path.Combine(appData, ".minecraft", "launcher_profiles.json");
             Authentication.LauncherProfiles profiles = Newtonsoft.Json.JsonConvert.DeserializeObject<Authentication.LauncherProfiles>(
